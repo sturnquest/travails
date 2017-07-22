@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+const program = require('commander')
+const Board = require('./app/services/board')
+
+program.parse(process.argv)
+
+let board = new Board()
+let [startSquare, endSquare] = program.args
+if(startSquare && endSquare && board.validSquare(startSquare) && board.validSquare(endSquare)) {
+  let minSequence = board.minSequence(startSquare, endSquare)
+  console.log(minSequence.join(' '))
+} else {
+  console.log('Usage: travails startSquare endSquare')
+}
