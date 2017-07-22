@@ -1,10 +1,5 @@
 'use strict'
 
-const readline = require('readline');
-const fs = require('fs');
-
-const eolByteCount = 1 // assume only 1 byte for end of line character e.g. \n
-
 const xCoordinateMap = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7}
 const yCoordinateMap = {'1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5, '7': 6, '8': 7}
 const xSquareMap = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H'}
@@ -31,12 +26,12 @@ class Board {
   nextMoveOptions(square) {
     let originCoordinate = this.toCoordinate(square)
     let coordinateOptions = [
+      [originCoordinate[0] - 1, originCoordinate[1] - 2], // two steps down. one step left
       [originCoordinate[0] + 1, originCoordinate[1] + 2], // two steps up. one step right
       [originCoordinate[0] - 1, originCoordinate[1] + 2], // two steps up. one step left
       [originCoordinate[0] + 2, originCoordinate[1] + 1], // two steps right. one step up
       [originCoordinate[0] + 2, originCoordinate[1] - 1], // two steps right. one step down
       [originCoordinate[0] + 1, originCoordinate[1] - 2], // two steps down. one step right
-      [originCoordinate[0] - 1, originCoordinate[1] - 2], // two steps down. one step left
       [originCoordinate[0] - 2, originCoordinate[1] + 1], // two steps left. one step up
       [originCoordinate[0] - 2, originCoordinate[1] - 1], // two steps left. one step down
     ]

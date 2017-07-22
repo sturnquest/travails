@@ -22,14 +22,13 @@ describe('Board', () => {
   })
 
   it('only returns valid next moves', () => {
-    board.nextMoveOptions('D4').should.deep.equal(['E6', 'C6', 'F5', 'F3', 'E2', 'C2', 'B5', 'B3'])
+    board.nextMoveOptions('D4').should.deep.equal(['C2', 'E6', 'C6', 'F5', 'F3', 'E2', 'B5', 'B3'])
     board.nextMoveOptions('A6').should.deep.equal(['B8', 'C7', 'C5', 'B4'])
     board.nextMoveOptions('H8').should.deep.equal(['G6', 'F7'])
   })
 
   it('returns shortest sequence of moves', () => {
-    // board.minSequence('A8', 'B7').should.deep.equal(['C7', 'B5', 'D6', 'B7'])
-    board.minSequence('A8', 'B7').should.deep.equal(['C7', 'E8', 'D6', 'B7'])
+    board.minSequence('A8', 'B7').should.deep.equal(['C7', 'B5', 'D6', 'B7'])
     board.minSequence('D3', 'F2').should.deep.equal(['F2'])
   })
 

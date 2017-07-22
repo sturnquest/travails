@@ -13,4 +13,4 @@
 
 ## Command line
 
-* `./travails A8 B7`
+`./travails A8 B7`
